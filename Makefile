@@ -37,4 +37,9 @@ install-local: hexchat-gnome-away.so
 uninstall-local:
 	rm $(DESTDIR)$(LOCALHEXCHATLIBDIR)/hexchat-gnome-away.so
 clean:
-	rm -f *.o *.so
+	rm -f *.o *.so *.gz
+
+DIST = $(shell git describe --tags)
+.PHONY: dist
+dist:
+	git archive --prefix=$(DIST)/ HEAD |gzip -9 >$(DIST).tar.gz
