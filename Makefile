@@ -1,4 +1,6 @@
 gio_CFLAGS = $(shell pkg-config --cflags gio-2.0)
+gio_CFLAGS += -DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_2_28
+gio_CFLAGS += -DGLIB_VERSION_MAX_ALLOWED=GLIB_VERSION_2_28
 gio_LIBS = $(shell pkg-config --libs gio-2.0)
 hexchat_CFLAGS = $(shell pkg-config --cflags hexchat-plugin)
 hexchat_LIBS = $(shell pkg-config --libs hexchat-plugin)
