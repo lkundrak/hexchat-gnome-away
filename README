@@ -1,0 +1,27 @@
+GNOME ScreenSaver auto-away Hexchat plugin
+==========================================
+
+This is a simple Hexchat plugin, that marks you away while your GNOME desktop 
+screensaver is active.
+
+Installation
+------------
+
+  $ pkcon install gcc make hexchat-devel glib2-devel
+  $ make
+  $ su
+  # make install
+
+Alternatively, you can install unprivileged into your home directory:
+
+  $ pkcon install gcc make hexchat-devel glib2-devel
+  $ make
+  $ make local-install
+
+Contributing
+------------
+
+The plugin is very simple and provides no means of configuration.
+Feel free to send me patches.
+
+Lubomir Rintel <lkundrak@v3.sk>
