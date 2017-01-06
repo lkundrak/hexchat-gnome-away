@@ -19,6 +19,8 @@
 #include <hexchat-plugin.h>
 #include <gio/gio.h>
 
+static GDBusProxy *proxy = NULL;
+
 static void
 set_away (hexchat_plugin *plugin_handle, GVariant *screensaver_state)
 {
@@ -45,9 +47,8 @@ hexchat_plugin_init (hexchat_plugin *plugin_handle,
                      char **plugin_name, char **plugin_desc,
                      char **plugin_version, char *arg)
 {
-	GDBusProxy *proxy;
-	GError *error = NULL;
 	GVariant *res;
+	GError *error = NULL;
 
 	*plugin_name = "hexchat-gnome-away";
 	*plugin_desc = "GNOME ScreenSaver auto-away";
@@ -96,6 +97,14 @@ hexchat_plugin_init (hexchat_plugin *plugin_handle,
 	                                    active_changed,
 	                                    plugin_handle,
 	                                    NULL);
+
+	return 1;
+}
+
+int
+hexchat_plugin_deinit ()
+{
+	g_clear_object (&proxy);
 
 	return 1;
 }
