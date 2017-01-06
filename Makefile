@@ -21,7 +21,7 @@ override LDFLAGS += $(module_LIBS)
 all: hexchat-gnome-away.so
 
 %.so: %.o
-	$(CC) -shared -o $@ $<
+	$(CC) $(CFLAGS) $(LDFLAGS) -shared -o $@ $<
 
 install: hexchat-gnome-away.so
 	mkdir -p $(DESTDIR)$(HEXCHATLIBDIR)/
